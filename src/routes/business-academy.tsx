@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import academyImg from "@/assets/academy-class.jpg";
+import { usePick } from "@/lib/i18n";
 
 export const Route = createFileRoute("/business-academy")({
   head: () => ({
@@ -19,37 +20,63 @@ export const Route = createFileRoute("/business-academy")({
   component: Page,
 });
 
-const programs = [
-  {
-    name: "TAX360",
-    tag: "Foundation",
-    desc: "The complete personal tax curriculum. From W-2 to Schedule C, you'll learn the craft inside a working firm.",
-    bullets: ["Live cohorts", "Bilingual instruction", "Real client cases", "Certification path"],
-  },
-  {
-    name: "TAX360 CORP",
-    tag: "Advanced",
-    desc: "Corporate taxation, entity strategy and multi-state filings — the curriculum for the operator who wants to serve businesses.",
-    bullets: ["LLC, S-Corp, C-Corp", "Entity strategy", "Multi-state filings", "Advisory frameworks"],
-  },
-  {
-    name: "SALES360",
-    tag: "Growth",
-    desc: "The sales and client-experience system that turns a licensed professional into a thriving practice.",
-    bullets: ["Discovery process", "Pricing & packaging", "Retention", "Referral engine"],
-  },
-] as const;
-
 function Page() {
+  const pick = usePick();
+
+  const programs = [
+    {
+      name: "TAX360",
+      tag: pick({ en: "Foundation", es: "Fundamentos" }),
+      desc: pick({
+        en: "The complete personal tax curriculum. From W-2 to Schedule C, you'll learn the craft inside a working firm.",
+        es: "El currículo completo de impuestos personales. Desde el W-2 hasta el Schedule C, aprendes el oficio dentro de una firma activa.",
+      }),
+      bullets: pick({
+        en: ["Live cohorts", "Bilingual instruction", "Real client cases", "Certification path"],
+        es: ["Cohortes en vivo", "Instrucción bilingüe", "Casos reales de clientes", "Camino a certificación"],
+      }),
+    },
+    {
+      name: "TAX360 CORP",
+      tag: pick({ en: "Advanced", es: "Avanzado" }),
+      desc: pick({
+        en: "Corporate taxation, entity strategy and multi-state filings — the curriculum for the operator who wants to serve businesses.",
+        es: "Impuestos corporativos, estrategia de entidades y declaraciones multi-estatales — el currículo para el operador que quiere servir a negocios.",
+      }),
+      bullets: pick({
+        en: ["LLC, S-Corp, C-Corp", "Entity strategy", "Multi-state filings", "Advisory frameworks"],
+        es: ["LLC, S-Corp, C-Corp", "Estrategia de entidades", "Declaraciones multi-estatales", "Marcos de asesoría"],
+      }),
+    },
+    {
+      name: "SALES360",
+      tag: pick({ en: "Growth", es: "Crecimiento" }),
+      desc: pick({
+        en: "The sales and client-experience system that turns a licensed professional into a thriving practice.",
+        es: "El sistema de ventas y experiencia del cliente que convierte a un profesional licenciado en una práctica próspera.",
+      }),
+      bullets: pick({
+        en: ["Discovery process", "Pricing & packaging", "Retention", "Referral engine"],
+        es: ["Proceso de descubrimiento", "Precios y empaquetado", "Retención", "Motor de referidos"],
+      }),
+    },
+  ];
+
   return (
     <>
       <PageHero
-        eyebrow="Business Academy"
-        title={<>Train inside a <span className="text-gradient-gold italic">working firm.</span></>}
-        description="DTODOS Academy isn't a course library — it's apprenticeship inside an active financial practice. Live cohorts, real client cases, and a path to certification, your own clients, and eventually your own agency."
+        eyebrow={pick({ en: "Business Academy", es: "Academia de Negocios" })}
+        title={pick({
+          en: <>Train inside a <span className="text-gradient-gold italic">working firm.</span></>,
+          es: <>Entrena dentro de una <span className="text-gradient-gold italic">firma activa.</span></>,
+        })}
+        description={pick({
+          en: "DTODOS Academy isn't a course library — it's apprenticeship inside an active financial practice. Live cohorts, real client cases, and a path to certification, your own clients, and eventually your own agency.",
+          es: "La Academia DTODOS no es una librería de cursos — es aprendizaje dentro de una práctica financiera activa. Cohortes en vivo, casos reales y un camino hacia la certificación, tus propios clientes y eventualmente tu propia agencia.",
+        })}
       >
-        <Link to="/contact" className="btn-gold">Enroll in TAX360 <ArrowRight size={16} /></Link>
-        <Link to="/agency-network" className="btn-ghost">See the agency path</Link>
+        <Link to="/contact" className="btn-gold">{pick({ en: "Enroll in TAX360", es: "Inscríbete en TAX360" })} <ArrowRight size={16} /></Link>
+        <Link to="/agency-network" className="btn-ghost">{pick({ en: "See the agency path", es: "Ver el camino a agencia" })}</Link>
       </PageHero>
 
       <section className="relative py-24">
@@ -71,7 +98,7 @@ function Page() {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="link-gold mt-10">Apply to this program <ArrowRight size={14} /></Link>
+                <Link to="/contact" className="link-gold mt-10">{pick({ en: "Apply to this program", es: "Aplicar a este programa" })} <ArrowRight size={14} /></Link>
               </div>
             </Reveal>
           ))}
@@ -81,14 +108,20 @@ function Page() {
       <section className="relative py-24 border-t border-white/5">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <p className="eyebrow">Learning by doing</p>
-            <h2 className="display mt-6 text-4xl">The classroom is a <span className="text-gradient-gold italic">real practice.</span></h2>
+            <p className="eyebrow">{pick({ en: "Learning by doing", es: "Aprender haciendo" })}</p>
+            <h2 className="display mt-6 text-4xl">
+              {pick({
+                en: <>The classroom is a <span className="text-gradient-gold italic">real practice.</span></>,
+                es: <>El salón de clase es una <span className="text-gradient-gold italic">práctica real.</span></>,
+              })}
+            </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Students sit alongside senior tax professionals, see real returns,
-              shadow real client meetings and graduate with a portfolio of completed
-              work — not a PDF certificate.
+              {pick({
+                en: "Students sit alongside senior tax professionals, see real returns, shadow real client meetings and graduate with a portfolio of completed work — not a PDF certificate.",
+                es: "Los estudiantes se sientan junto a profesionales senior, ven declaraciones reales, acompañan reuniones reales con clientes y se gradúan con un portafolio de trabajo terminado — no un certificado en PDF.",
+              })}
             </p>
-            <Link to="/contact" className="btn-gold mt-10">Talk to admissions <ArrowRight size={16} /></Link>
+            <Link to="/contact" className="btn-gold mt-10">{pick({ en: "Talk to admissions", es: "Hablar con admisiones" })} <ArrowRight size={16} /></Link>
           </Reveal>
           <Reveal delay={120}>
             <img src={academyImg} alt="DTODOS Academy in session" className="rounded-2xl object-cover w-full aspect-[4/3] shadow-elev" loading="lazy" />
