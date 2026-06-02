@@ -49,9 +49,9 @@ const divisions = [
   },
   {
     icon: Network,
-    name: "Agency Network",
+    name: "DTODOS ADN",
     tag: "03",
-    desc: "Build your own agency under the DTODOS umbrella. Ownership, team building and expansion opportunities — backed by a proven playbook.",
+    desc: "The Agency Development Network. Build your own agency under the DTODOS umbrella — ownership, team building and expansion opportunities, backed by a proven playbook.",
     items: ["Agency Ownership", "Team Building", "Expansion", "Recruiting", "Revenue share", "Branding"],
   },
   {
@@ -181,7 +181,7 @@ function Home() {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link to="/financial-services" className="link-gold">Our services <ArrowRight size={14} /></Link>
                 <span className="text-muted-foreground/40">·</span>
-                <Link to="/agency-network" className="link-gold">Agency Network <ArrowRight size={14} /></Link>
+                <Link to="/agency-network" className="link-gold">DTODOS ADN <ArrowRight size={14} /></Link>
               </div>
             </Reveal>
           </div>

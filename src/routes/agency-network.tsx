@@ -7,9 +7,9 @@ import goldTexture from "@/assets/texture-gold.jpg";
 export const Route = createFileRoute("/agency-network")({
   head: () => ({
     meta: [
-      { title: "Agency Network — Own your DTODOS agency" },
-      { name: "description", content: "Open your own financial agency under the DTODOS umbrella. Ownership, team building, expansion markets and a full technology stack — backed by a proven playbook." },
-      { property: "og:title", content: "DTODOS Agency Network" },
+      { title: "DTODOS ADN — Agency Development Network" },
+      { name: "description", content: "DTODOS ADN (Agency Development Network) — open your own financial agency under the DTODOS umbrella. Ownership, team building, expansion markets and a full technology stack." },
+      { property: "og:title", content: "DTODOS ADN — Agency Development Network" },
       { property: "og:description", content: "From operator to agency owner." },
       { property: "og:url", content: "/agency-network" },
     ],
@@ -29,9 +29,9 @@ function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Agency Network"
+        eyebrow="DTODOS ADN · Agency Development Network"
         title={<>Own your agency. <span className="text-gradient-gold italic">Plug into an ecosystem.</span></>}
-        description="The DTODOS Agency Network is built for licensed professionals ready to run their own firm — but tired of doing it alone. Brand, technology, training, recruiting and a national network — all at your back."
+        description="DTODOS ADN (Agency Development Network) is built for licensed professionals ready to run their own firm — but tired of doing it alone. Brand, technology, training, recruiting and a national network — all at your back."
       >
         <Link to="/contact" className="btn-gold">Request agency info <ArrowRight size={16} /></Link>
         <Link to="/business-academy" className="btn-ghost">Get licensed first</Link>
