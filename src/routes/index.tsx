@@ -12,7 +12,7 @@ import {
   Users,
   Quote,
 } from "lucide-react";
-import heroImg from "@/assets/hero-abstract.jpg";
+import heroImg from "@/assets/hero-marble.jpg";
 import founderImg from "@/assets/mrgeo-portrait.png.asset.json";
 import goldTexture from "@/assets/texture-gold.jpg";
 import { Reveal } from "@/components/Reveal";
