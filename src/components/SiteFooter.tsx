@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Logo } from "./Logo";
 
 const groups = [
   {
@@ -10,7 +11,7 @@ const groups = [
     items: ["TAX360", "TAX360 CORP", "SALES360", "Curriculum", "Mentorship", "Certification"],
   },
   {
-    title: "Agency Network",
+    title: "DTODOS ADN",
     items: ["Ownership Program", "Team Building", "Expansion", "Technology Stack", "DTODOS CRM", "Automation"],
   },
   {
@@ -26,9 +27,8 @@ export function SiteFooter() {
       <div className="container-x relative py-20">
         <div className="grid gap-16 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-md bg-gradient-gold text-ink font-bold shadow-gold">D</span>
-              <span className="text-sm tracking-[0.22em] font-medium">DTODOS · FINANCIAL</span>
+            <Link to="/" aria-label="DTODOS Financial Group home">
+              <Logo size={42} />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Taxes. Insurance. Business. Education. One ecosystem built to turn

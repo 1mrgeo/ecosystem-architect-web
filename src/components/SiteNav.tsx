@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Logo } from "./Logo";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/financial-services", label: "Financial Services" },
   { to: "/business-academy", label: "Business Academy" },
-  { to: "/agency-network", label: "Agency Network" },
+  { to: "/agency-network", label: "DTODOS ADN" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -30,13 +31,8 @@ export function SiteNav() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-gradient-gold text-ink font-bold text-sm shadow-gold">
-            D
-          </span>
-          <span className="text-sm tracking-[0.22em] font-medium">
-            DTODOS<span className="text-gold/80"> · </span>FINANCIAL
-          </span>
+        <Link to="/" className="group" aria-label="DTODOS Financial Group home">
+          <Logo size={36} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
