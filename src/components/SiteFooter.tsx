@@ -1,26 +1,41 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
-
-const groups = [
-  {
-    title: "Financial Services",
-    items: ["Personal Taxes", "Corporate Taxes", "Bookkeeping", "Business Formation", "Health Insurance", "Life Insurance"],
-  },
-  {
-    title: "Business Academy",
-    items: ["TAX360", "TAX360 CORP", "SALES360", "Curriculum", "Mentorship", "Certification"],
-  },
-  {
-    title: "DTODOS ADN",
-    items: ["Ownership Program", "Team Building", "Expansion", "Technology Stack", "DTODOS CRM", "Automation"],
-  },
-  {
-    title: "Company",
-    items: ["About MrGEO", "Press", "Careers", "Contact", "Legal", "Privacy"],
-  },
-] as const;
+import { usePick } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const pick = usePick();
+
+  const groups = [
+    {
+      title: pick({ en: "Financial Services", es: "Servicios Financieros" }),
+      items: pick({
+        en: ["Personal Taxes", "Corporate Taxes", "Bookkeeping", "Business Formation", "Health Insurance", "Life Insurance"],
+        es: ["Impuestos Personales", "Impuestos Corporativos", "Contabilidad", "Formación de Empresa", "Seguro de Salud", "Seguro de Vida"],
+      }),
+    },
+    {
+      title: pick({ en: "Business Academy", es: "Academia de Negocios" }),
+      items: pick({
+        en: ["TAX360", "TAX360 CORP", "SALES360", "Curriculum", "Mentorship", "Certification"],
+        es: ["TAX360", "TAX360 CORP", "SALES360", "Plan de estudios", "Mentoría", "Certificación"],
+      }),
+    },
+    {
+      title: "DTODOS ADN",
+      items: pick({
+        en: ["Ownership Program", "Team Building", "Expansion", "Technology Stack", "DTODOS CRM", "Automation"],
+        es: ["Programa de Propiedad", "Construcción de Equipo", "Expansión", "Stack Tecnológico", "DTODOS CRM", "Automatización"],
+      }),
+    },
+    {
+      title: pick({ en: "Company", es: "Compañía" }),
+      items: pick({
+        en: ["About MrGEO", "Press", "Careers", "Contact", "Legal", "Privacy"],
+        es: ["Sobre MrGEO", "Prensa", "Carreras", "Contacto", "Legal", "Privacidad"],
+      }),
+    },
+  ];
+
   return (
     <footer className="relative mt-32 border-t border-white/5">
       <div className="absolute inset-0 bg-radial-gold opacity-40 pointer-events-none" />
@@ -31,12 +46,18 @@ export function SiteFooter() {
               <Logo size={42} />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Taxes. Insurance. Business. Education. One ecosystem built to turn
-              clients into financial professionals, and professionals into agency owners.
+              {pick({
+                en: "Taxes. Insurance. Business. Education. One ecosystem built to turn clients into financial professionals, and professionals into agency owners.",
+                es: "Impuestos. Seguros. Negocios. Educación. Un ecosistema diseñado para convertir clientes en profesionales financieros, y profesionales en dueños de agencia.",
+              })}
             </p>
             <div className="mt-8 flex items-center gap-3">
-              <Link to="/contact" className="btn-gold !py-2.5 !px-5 text-[13px]">Book a consultation</Link>
-              <Link to="/agency-network" className="btn-ghost !py-2.5 !px-5 text-[13px]">Become an agent</Link>
+              <Link to="/contact" className="btn-gold !py-2.5 !px-5 text-[13px]">
+                {pick({ en: "Book a consultation", es: "Reservar consulta" })}
+              </Link>
+              <Link to="/agency-network" className="btn-ghost !py-2.5 !px-5 text-[13px]">
+                {pick({ en: "Become an agent", es: "Hazte agente" })}
+              </Link>
             </div>
           </div>
 
@@ -60,10 +81,13 @@ export function SiteFooter() {
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} DTODOS Financial Group. All rights reserved.
+            © {new Date().getFullYear()} DTODOS Financial Group. {pick({ en: "All rights reserved.", es: "Todos los derechos reservados." })}
           </p>
           <p className="text-xs text-muted-foreground">
-            Miami, FL · A modern financial services ecosystem.
+            {pick({
+              en: "Miami, FL · A modern financial services ecosystem.",
+              es: "Miami, FL · Un ecosistema moderno de servicios financieros.",
+            })}
           </p>
         </div>
       </div>
