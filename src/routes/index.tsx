@@ -13,7 +13,7 @@ import {
   Quote,
 } from "lucide-react";
 import heroImg from "@/assets/hero-miami.jpg";
-import founderImg from "@/assets/founder-mrgeo.jpg";
+import founderImg from "@/assets/mrgeo-portrait.png.asset.json";
 import goldTexture from "@/assets/texture-gold.jpg";
 import { Reveal } from "@/components/Reveal";
 
@@ -284,14 +284,15 @@ function Home() {
           <div className="grid gap-16 lg:grid-cols-12 items-center">
             <Reveal className="lg:col-span-5">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-gold opacity-20 blur-2xl rounded-3xl" />
+                <div className="absolute inset-0 bg-radial-gold opacity-60 blur-3xl" />
                 <img
-                  src={founderImg}
+                  src={founderImg.url}
                   alt="MrGEO, founder of DTODOS Financial Group"
-                  className="relative rounded-2xl shadow-elev object-cover w-full aspect-[4/5]"
+                  className="relative w-full max-w-md mx-auto object-contain drop-shadow-2xl"
                   loading="lazy"
                   width={1080}
-                  height={1600}
+                  height={1080}
+                  style={{ filter: "drop-shadow(0 30px 60px oklch(0.82 0.13 84 / 0.25))" }}
                 />
               </div>
             </Reveal>
