@@ -54,7 +54,7 @@ function Page() {
         <Link to="/business-academy" className="btn-ghost">{pick({ en: "Get licensed first", es: "Obtén tu licencia primero" })}</Link>
       </PageHero>
 
-      <section className="relative py-24">
+      <section className="relative py-16">
         <div className="container-x grid gap-px bg-white/5 sm:grid-cols-2">
           {pillars.map((p, i) => (
             <Reveal key={p.name} delay={i * 80} className="bg-background">
@@ -68,7 +68,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="relative py-24 border-t border-white/5 overflow-hidden">
+      <section className="relative py-16 border-t border-white/5 overflow-hidden">
         <img src={goldTexture} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" aria-hidden />
         <div className="container-x relative grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>

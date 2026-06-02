@@ -79,7 +79,7 @@ function Page() {
         <Link to="/agency-network" className="btn-ghost">{pick({ en: "See the agency path", es: "Ver el camino a agencia" })}</Link>
       </PageHero>
 
-      <section className="relative py-24">
+      <section className="relative py-16">
         <div className="container-x grid gap-6 lg:grid-cols-3">
           {programs.map((p, i) => (
             <Reveal key={p.name} delay={i * 100}>
@@ -105,7 +105,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="relative py-24 border-t border-white/5">
+      <section className="relative py-16 border-t border-white/5">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <p className="eyebrow">{pick({ en: "Learning by doing", es: "Aprender haciendo" })}</p>

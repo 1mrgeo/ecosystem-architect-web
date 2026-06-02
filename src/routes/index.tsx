@@ -197,7 +197,7 @@ function Home() {
       </section>
 
       {/* COMPANY */}
-      <section className="relative py-32">
+      <section className="relative py-20">
         <div className="container-x">
           <div className="grid gap-16 lg:grid-cols-12 items-start">
             <Reveal className="lg:col-span-5">
@@ -233,7 +233,7 @@ function Home() {
       </section>
 
       {/* DIVISIONS */}
-      <section className="relative py-32 border-t border-white/5">
+      <section className="relative py-20 border-t border-white/5">
         <div className="container-x">
           <Reveal>
             <p className="eyebrow">{pick({ en: "Four divisions · One ecosystem", es: "Cuatro divisiones · Un ecosistema" })}</p>
@@ -271,7 +271,7 @@ function Home() {
       </section>
 
       {/* WHY */}
-      <section className="relative py-32 border-t border-white/5">
+      <section className="relative py-20 border-t border-white/5">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -297,7 +297,7 @@ function Home() {
       </section>
 
       {/* JOURNEY */}
-      <section className="relative py-32 border-t border-white/5 overflow-hidden">
+      <section className="relative py-20 border-t border-white/5 overflow-hidden">
         <img src={goldTexture} alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" aria-hidden />
         <div className="container-x relative">
           <Reveal>
@@ -328,7 +328,7 @@ function Home() {
       </section>
 
       {/* FOUNDER */}
-      <section className="relative py-32 border-t border-white/5">
+      <section className="relative py-20 border-t border-white/5">
         <div className="container-x">
           <div className="grid gap-16 lg:grid-cols-12 items-center">
             <Reveal className="lg:col-span-5">
@@ -372,7 +372,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative py-32 border-t border-white/5">
+      <section className="relative py-20 border-t border-white/5">
         <div className="container-x">
           <Reveal>
             <p className="eyebrow">{pick({ en: "Success Stories", es: "Historias de Éxito" })}</p>
@@ -403,10 +403,10 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 border-t border-white/5">
+      <section className="relative py-20 border-t border-white/5">
         <div className="container-x">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 px-8 sm:px-16 py-20 sm:py-28">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 px-8 sm:px-16 py-14 sm:py-20">
               <img src={goldTexture} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" aria-hidden />
               <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
               <div className="relative max-w-2xl">
