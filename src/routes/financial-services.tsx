@@ -54,7 +54,7 @@ function Page() {
         <Link to="/business-academy" className="btn-ghost">{pick({ en: "Become a professional", es: "Hazte profesional" })}</Link>
       </PageHero>
 
-      <section className="relative py-24">
+      <section className="relative py-16">
         <div className="container-x">
           <div className="grid gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
@@ -73,7 +73,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="relative py-24 border-t border-white/5">
+      <section className="relative py-16 border-t border-white/5">
         <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <img src={officeImg} alt="DTODOS boardroom" className="rounded-2xl object-cover w-full aspect-[4/3] shadow-elev" loading="lazy" />
