@@ -2,18 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/financial-services", label: "Financial Services" },
-  { to: "/business-academy", label: "Business Academy" },
-  { to: "/agency-network", label: "DTODOS ADN" },
-  { to: "/contact", label: "Contact" },
-] as const;
+import { LangToggle, usePick } from "@/lib/i18n";
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pick = usePick();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -21,6 +15,14 @@ export function SiteNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = [
+    { to: "/", label: pick({ en: "Home", es: "Inicio" }) },
+    { to: "/financial-services", label: pick({ en: "Financial Services", es: "Servicios Financieros" }) },
+    { to: "/business-academy", label: pick({ en: "Business Academy", es: "Academia de Negocios" }) },
+    { to: "/agency-network", label: "DTODOS ADN" },
+    { to: "/contact", label: pick({ en: "Contact", es: "Contacto" }) },
+  ] as const;
 
   return (
     <header
@@ -49,17 +51,25 @@ export function SiteNav() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/contact" className="btn-ghost !py-2 !px-4 text-[13px]">Book a call</Link>
-          <Link to="/business-academy" className="btn-gold !py-2 !px-4 text-[13px]">Join TAX360</Link>
+          <LangToggle />
+          <Link to="/contact" className="btn-ghost !py-2 !px-4 text-[13px]">
+            {pick({ en: "Book a call", es: "Reservar llamada" })}
+          </Link>
+          <Link to="/business-academy" className="btn-gold !py-2 !px-4 text-[13px]">
+            {pick({ en: "Join TAX360", es: "Únete a TAX360" })}
+          </Link>
         </div>
 
-        <button
-          aria-label="Menu"
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LangToggle />
+          <button
+            aria-label="Menu"
+            className="p-2 text-foreground"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -75,7 +85,9 @@ export function SiteNav() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-gold mt-3 w-full">Book a call</Link>
+            <Link to="/contact" onClick={() => setOpen(false)} className="btn-gold mt-3 w-full">
+              {pick({ en: "Book a call", es: "Reservar llamada" })}
+            </Link>
           </div>
         </div>
       )}
