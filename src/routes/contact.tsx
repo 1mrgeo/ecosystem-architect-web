@@ -18,7 +18,7 @@ export const Route = createFileRoute("/contact")({
   component: Page,
 });
 
-const interests = ["Financial Services", "Business Academy / TAX360", "Agency Network", "Other"];
+const interests = ["Financial Services", "Business Academy / TAX360", "DTODOS ADN (Agency Network)", "Other"];
 
 function Page() {
   const [submitted, setSubmitted] = useState(false);
